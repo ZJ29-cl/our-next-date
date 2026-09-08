@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+:root {
+  --bg-canvas: #FAF6F0;
+  --surface-card: #FFFFFF;
+  --surface-muted: #F3ECE4;
+  --accent-terracotta: #C67B5C;
+  --accent-terracotta-text: #A8583A;
+  --accent-soft: #E8C4B8;
+  --text-primary: #2B2420;
+  --text-muted: #766B65;
+  --border-subtle: #E8DFD5;
+}
+
+@theme {
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "Work Sans", system-ui, -apple-system, sans-serif;
+  --font-handwriting: "Caveat", cursive;
+  --color-canvas: #FAF6F0;
+  --color-surface-card: #FFFFFF;
+  --color-surface-muted: #F3ECE4;
+  --color-terracotta: #C67B5C;
+  --color-terracotta-text: #A8583A;
+  --color-terracotta-soft: #E8C4B8;
+  --color-text-primary: #2B2420;
+  --color-text-muted: #766B65;
+  --color-border-subtle: #E8DFD5;
+}
+
+/* WCAG 2.4.7: Visible focus indicator across all interactive controls */
+:focus-visible {
+  outline: 2px solid #C67B5C;
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+a:focus-visible {
+  outline: 2px solid #C67B5C;
+  outline-offset: 2px;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: 'Work Sans', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* HIG: Direct Manipulation - remove default gray highlight flash on touch, eliminate tap delay */
+*, *::before, *::after {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Fraunces optical-size axis: engages ink-trap flare at display size, subtle ink-spread shadow */
+h1, h2, h3, h4, .font-serif {
+  font-family: 'Fraunces', Georgia, serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "opsz" 72;
+  text-shadow: 0 0.5px 0 rgba(43, 36, 32, 0.10);
+}
+
+/* Caveat handwriting — sweet notes, postscripts */
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+}
+
+/* Tactile boutique stationery paper feel — denser dot-matrix with diagonal grain overlay */
+.stationery-texture {
+  background-color: #FAF6F0;
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(229, 219, 208, 0.12) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgba(229, 219, 208, 0.12) 75%
+    ),
+    radial-gradient(#E5DBD0 1px, transparent 1px);
+  background-size:
+    36px 36px,
+    18px 18px;
+}
+
+/* Ruled-paper texture — faint terracotta-tinted horizontal lines evoking date-planner stationery */
+.ruled-paper {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 27px,
+    rgba(168, 88, 58, 0.07) 27px,
+    rgba(168, 88, 58, 0.07) 28px
+  );
+}
+
+/* Paper-edge inset — simulates slightly thicker paper stack depth on card surfaces */
+.paper-edge {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.90),
+    inset 0 -1px 0 rgba(43, 36, 32, 0.04);
+}
+
+/* Apple-style liquid glass panel with refined specular inner edge illumination */
+.liquid-glass {
+  background-color: rgba(255, 255, 255, 0.84);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 1px 1px 0 rgba(255, 255, 255, 0.95) inset,
+    0 12px 36px -4px rgba(43, 36, 32, 0.06);
+}
+
+/* Custom styled native inputs - 16px floor to prevent iOS Safari auto-zoom */
+input[type="date"],
+input[type="time"],
+input[type="text"],
+input[type="url"],
+textarea,
+select {
+  font-size: 16px;
+  color: var(--text-primary);
+  font-family: 'Work Sans', sans-serif;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.7;
+  filter: sepia(40%) hue-rotate(330deg) saturate(140%);
+}
+
+/* Hide scrollbar for Chrome, Safari, Opera and Firefox */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

@@ -1,0 +1,19 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env
+.env.*
+*.local
+!.env.example
+.agents/
+
+# Never commit credentials, keys, or configs
+firebase-applet-config.json
+firebase*.json
+service-account*.json
+serviceAccount*.json
+*.pem
+*.key
